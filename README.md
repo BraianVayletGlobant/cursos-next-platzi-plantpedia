@@ -33,8 +33,8 @@ Este repositorio recopila el proyecto de la Saga de Next.js dictado por [@jonalv
 
 ## Notas
 
-- [📝 Notas del Curso de Next.js: Sitios Estáticos y Jamstack](#-Notas-del-Curso-de-Next.js:-Sitios-Estáticos-y-Jamstack)
-- [📝 Notas del Curso de Next.js: Optimización y Deploy a Producción](#-Notas-del-Curso-de-Next.js:-Optimización-y-Deploy-a-Producción)
+- [📝 Notas del Curso de Next.js: Sitios Estáticos y Jamstack](#📝-Notas-del-Curso-de-Next.js:-Sitios-Estáticos-y-Jamstack)
+- [📝 Notas del Curso de Next.js: Optimización y Deploy a Producción](#📝-Notas-del-Curso-de-Next.js:-Optimización-y-Deploy-a-Producción)
 
 ## 🔎 ¿Cómo trabajar en este proyecto?
 

@@ -33,8 +33,8 @@ Este repositorio recopila el proyecto de la Saga de Next.js dictado por [@jonalv
 
 ## Notas
 
-- [📝 Notas del Curso de Next.js: Sitios Estáticos y Jamstack](#📝-Notas-del-Curso-de-Next.js:-Sitios-Estáticos-y-Jamstack)
-- [📝 Notas del Curso de Next.js: Optimización y Deploy a Producción](#📝-Notas-del-Curso-de-Next.js:-Optimización-y-Deploy-a-Producción)
+- [📝 Notas del Curso de Next.js, Sitios Estáticos y Jamstack](#📝-Notas-del-Curso-de-Next.js,-Sitios-Estáticos-y-Jamstack)
+- [📝 Notas del Curso de Next.js, Optimización y Deploy a Producción](#📝-Notas-del-Curso-de-Next.js,-Optimización-y-Deploy-a-Producción)
 
 ## 🔎 ¿Cómo trabajar en este proyecto?
 
@@ -225,7 +225,7 @@ Happy hacking!
 
 ---
 
-# Notas del Curso de Next.js: Sitios Estáticos y Jamstack
+# 📝 Notas del Curso de Next.js, Sitios Estáticos y Jamstack
 
 ## Metodos de rendering
 
@@ -378,7 +378,7 @@ con páginas guardadas en caché.
 
 ---
 
-# Notas del Curso de Next.js: Optimización y Deploy a Producción
+# 📝 Notas del Curso de Next.js, Optimización y Deploy a Producción
 
 ## Este curso es la continuacion del curso de Next.js: Sitios Estáticos y Jamstack. [Repo](https://github.com/BraianVayletGlobant/curso-next-sitios-estaticos-jamstack-platzi)
 

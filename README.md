@@ -35,6 +35,7 @@ Este repositorio recopila el proyecto de la Saga de Next.js dictado por [@jonalv
 
 - [📝 Notas del Curso de Next.js: Sitios Estáticos y Jamstack](#-Notas-del-Curso-de-Next.js:-Sitios-Estáticos-y-Jamstack)
 - [📝 Notas del Curso de Next.js: Optimización y Deploy a Producción](#-Notas-del-Curso-de-Next.js:-Optimización-y-Deploy-a-Producción)
+- [📝 Notas del Curso de Next.js: Manejo de Grandes Datasets](#-Notas-del-Curso-de-Next.js:-Manejo-de-Grandes-Datasets)
 
 ## 🔎 ¿Cómo trabajar en este proyecto?
 
@@ -225,7 +226,7 @@ Happy hacking!
 
 ---
 
-# Notas del Curso de Next.js: Sitios Estáticos y Jamstack
+# 📝 Notas del Curso de Next.js: Sitios Estáticos y Jamstack
 
 ## Metodos de rendering
 
@@ -378,9 +379,9 @@ con páginas guardadas en caché.
 
 ---
 
-# Notas del Curso de Next.js: Optimización y Deploy a Producción
+# 📝 Notas del Curso de Next.js: Optimización y Deploy a Producción
 
-## Este curso es la continuacion del curso de Next.js: Sitios Estáticos y Jamstack. [Repo](https://github.com/BraianVayletGlobant/curso-next-sitios-estaticos-jamstack-platzi)
+## Este curso es la continuacion de la saga de cursos de Next.js. [Repo](https://github.com/BraianVayletGlobant/curso-next-sitios-estaticos-jamstack-platzi)
 
 ## Clases
 
@@ -392,6 +393,16 @@ con páginas guardadas en caché.
 - Clase6: [Componente Image de Next.js](#Componente-Image-de-Next.js)
 - Clase7: [Image API: configurando nuestro propio loader avanzado](#Image-API:-configurando-nuestro-propio-loader-avanzado)
 - Clase8: [Shallow navigation, router.query y data fetching](#Shallow-navigation,-router.query-y-data-fetching)
+- Clase9: [next/link y React refs](#next/link-y-React-refs)
+- Clase10: [Prefetching de rutas](#Prefetching-de-rutas)
+- Clase11: [Personalizando las páginas de error 404 y 500](#Personalizando-las-páginas-de-error-404-y-500)
+- Clase12: [Páginas de errores avanzadas y cómo reusarlas](#Páginas-de-errores-avanzadas-y-cómo-reusarlas)
+- Clase13: [CMS y Preview Mode](#CMS-y-Preview-Mode)
+- Clase14: [Configurando el Preview Mode en Contenful](#Configurando-el-Preview-Mode-en-Contenful)
+- Clase15: [Aceptando Preview Mode en nuestra App](Aceptando-Preview-Mode-en-nuestra-App)
+- Clase16: [Así se ve en nuestro CMS y App](#Así-se-ve-en-nuestro-CMS-y-App)
+- Clase17: [¿Dónde puedo hacer deploy?](#¿Dónde-puedo-hacer-deploy?)
+- Clase18: [Cómo hacer deploy a Vercel](#Cómo-hacer-deploy-a-Vercel)
 
 ---
 
@@ -572,4 +583,216 @@ Shallow Navigation principalmente nos ayuda a cambiar la URL de la aplicación s
 >
 > - [Routing: Shallow Routing | Next.js](https://nextjs.org/docs/routing/shallow-routing)
 
----
+# next/link y React refs
+
+### Apuntes
+
+Cuando utilizamos el componente link sobre componentes no nativos como ser las etiquetas: a, button, img Siempre debemos pasar la propiedad passHref
+
+```js
+function NavLink({ children, ...linkProps }: PropsWithChildren<LinkProps>) {
+  return (
+    <Link {...linkProps} passHref>
+      <Button color="inherit" variant="text" component="a">
+        {children}
+      </Button>
+    </Link>
+  )
+}
+```
+
+En este caso Button proviene de Material UI, la cual el mismo está implementando la referencia que recibe de link y la implementa en el elemento nativo
+
+En el caso de tener un componente personalizado que ira dentro de una etiqueta Link, debes implementar la funcionalidad React.forwardRef() de la siguiente manera
+
+```js
+const MyButton = React.forwardRef(({ href, onClick }, ref) => {
+  return (
+    <a href={href} onClick={onClick} ref={ref}>
+      Click Me
+    </a>
+  )
+})
+```
+
+Esto porque Next.js necesita tener acceso al DOM para su correcto funcionamiento en next/link
+
+- Para brindar el acceso al DOM utilizamos las referencias de React.js
+- Por este motivo las referencias en componentes personalizados se deben enviar hacia abajo hasta llegar al elemento nativo
+
+Al utilizar librerías como Material UI o Styled Components las mismas lo realizan por debajo, pero en casos personalizados debes realizar dicha implementación
+
+## 📌 **RESUMEN:**
+
+Implementar passHref en Next.js es importante para el correcto funcionamiento en el caso de tener un componente personalizado, pasando la referencia hasta llegar al elemento nativo
+
+# Prefetching de rutas
+
+### Ideas/conceptos claves
+
+`link decoration` es donde podemos mandar ciertos parámetros por ejemplo: URL?q=busquega&authuser=1
+
+### Recursos
+
+> Links:
+>
+> - [Next: router.prefetch](https://nextjs.org/docs/api-reference/next/router#routerprefetch)
+
+### Apuntes
+
+Para realizar un prefetch de una página de forma manual se puede realizar de la siguiente manera
+
+```js
+router.prefetch(
+	url: string,
+	as?: string
+)
+```
+
+# Personalizando las páginas de error 404 y 500
+
+Las páginas de error son indispensables en una aplicación, porque inevitablemente va a suceder. Next.js ya trae páginas de error
+
+- 404 ⇒ Cuando no se encuentra disponible la página
+- 500 ⇒ Cuando existe un error en el servidor o en los componentes de React.js
+
+También puedes personalizar dichas páginas de error
+
+👀 Estas páginas de error, comúnmente se desea que vayan al servidor, entonces Next.js **siempre** las va a renderizar de forma estática
+
+## 📌 **RESUMEN:**
+
+Next.js trae por defecto páginas de error las cuales puedes personalizar
+
+> Links:
+>
+> - [404 | 500 Page](https://nextjs.org/docs/advanced-features/custom-error-page#404-page)
+
+# Páginas de errores avanzadas y cómo reusarlas
+
+...
+
+> Links:
+>
+> - [https://httptoolkit.tech/](https://httptoolkit.tech/)
+
+# CMS y Preview Mode
+
+**Headless CMS** es un sistema gestor de contenido que solo proporciona un back-end construido como un repositorio de contenido. Además, permite que el contenido sea accesible a través de una API
+
+### Apuntes
+
+- Cuando usamos un generador de sitios estáticos con CMS que son headless (no tienen ninguna parte visual) tenemos muchas ventajas de mostrar y el cómo mostrar al usuario
+- Una funcionalidad útil para editores es la capacidad de poder previsualizar el contenido sin publicarlo
+- En el caso de un sitio de muchas visitas y las personas están muy pendientes del mismo, como desarrollador debes tener un control de poder ver el contenido como si estuviera publicado y que la URL no esté disponible para acceder
+
+### Preview Mode
+
+- Capacidad de previsualizar contenido sin la necesidad de que esté publicada o disponible para el público
+- Next.js es pionero en esta característica, trabajando con diferentes CMS para brindar esta solución
+  - Nos ofrece la API para habilitar dicha funcionalidad
+  - También nos da un secreto para comunicar con nuestro CMS, de esta manera se verificará que la solicitud es correcta
+
+## 📌 **RESUMEN:**
+
+Preview Mode permite previsualizar contenido sin necesidad de mostrar algo al público. Next.js ofrece funcionalidades para habilitar esta funcionalidad.
+
+# Configurando el Preview Mode en Contenful
+
+Configuraciones en Contentfull, Vercel y Next trabajaron mucho con varios CMS Headles para permitir un preview mode.
+
+# Aceptando Preview Mode en nuestra App
+
+Trabajando en el codigo y cms...
+
+# Así se ve en nuestro CMS y App
+
+Trabajando en el codigo y cms...
+
+# ¿Dónde puedo hacer deploy?
+
+#### Next.js no es más que una aplicación de Node.js
+
+- La manera de llevar a producción la aplicación es la misma que una aplicación de Node.js
+- Todo el fundamento de Next.js son las bases de Node.js, por lo cual podemos llevar a cualquier lugar que soporte esta tecnología
+- Toda aplicación de Node.js termina siempre con el procedimiento de:
+
+```
+npm install
+npm run build
+npm run start
+```
+
+- Desde que el servidor de Node.js comience a funcionar se tienen todos los beneficios de Next.js
+
+#### No depende de donde si no de cuáles son las necesidades de la aplicación
+
+- Por ejemplo, en el caso de tener pocos usuarios se puede utilizar digital ocean
+- En el caso de necesitar las funcionalidades para traer datos (getStaticProps, getServerSideProps) es necesario tener un servidor de Node.js
+
+## 📌 **RESUMEN:**
+
+Una aplicación de Next.js no es nada más que una aplicación de Node.js, al correr un servidor del mismo obtendremos todas las características que ofrece Next.js. No depende de donde hacer el deploy si no de cuáles son las necesidades del proyecto.
+
+# Cómo hacer deploy a Vercel
+
+> Links:
+>
+> - [Vercel](https://vercel.com/)
+
+# 📝 Notas del Curso de Next.js: Manejo de Grandes Datasets
+
+## Este curso es la continuacion de la saga de cursos de Next.js. [Repo](https://github.com/BraianVayletGlobant/curso-next-sitios-estaticos-jamstack-platzi)
+
+## Clases
+
+- Clase1: [¿Cuándo optimizar el código?](#¿Cuándo-optimizar-el-código?)
+- Clase2: [Analizando nuestra página de búsqueda](#Analizando-nuestra-página-de-búsqueda)
+- Clase3: [Nuestro propio hook debouncer: useDebouncer](#Nuestro-propio-hook-debouncer:-useDebouncer)
+- Clase4: [Throttling y Debouncing con Lodash en React](#Throttling-y-Debouncing-con-Lodash-en-React)
+- Clase5: [Asincronía, cache y re-validación de recursos HTTP](#Asincronía,-cache-y-re-validación-de-recursos-HTTP)
+- Clase6: [Hashmaps vs. arrays](#Hashmaps-vs.-arrays)
+- Clase7: [Identificando re-renders problemáticos](#Identificando-re-renders-problemáticos)
+- Clase8: [Memoization en React](#Memoization-en-React)
+
+# ¿Cuándo optimizar el código?
+
+> Links:
+>
+> - [https://blog.codinghorror.com/the-sad-tragedy-of-micro-optimization-theater/](https://blog.codinghorror.com/the-sad-tragedy-of-micro-optimization-theater/)
+
+# Analizando nuestra página de búsqueda
+
+> Links:
+>
+> - [https://tomekdev.com/posts/throttle-vs-debounce-on-real-examples](https://tomekdev.com/posts/throttle-vs-debounce-on-real-examples)
+
+# Nuestro propio hook debouncer: useDebouncer
+
+...
+
+# Throttling y Debouncing con Lodash en React
+
+> Links:
+>
+> [https://lodash.com/docs/4.17.15#debounce](#https://lodash.com/docs/4.17.15#debounce)
+
+# Asincronía, cache y re-validación de recursos HTTP
+
+> Links:
+>
+> - [https://tkdodo.eu/blog/practical-react-query](https://tkdodo.eu/blog/practical-react-query)
+> - [https://www.youtube.com/watch?v=gK38v1mXjHg](https://www.youtube.com/watch?v=gK38v1mXjHg)
+
+# Hashmaps vs. arrays
+
+...
+
+# Identificando re-renders problemáticos
+
+> Links:
+>
+> - [https://prateeksurana.me/blog/when-should-you-memoize-in-react/](https://prateeksurana.me/blog/when-should-you-memoize-in-react/)
+> - [https://es.wikipedia.org/wiki/Memoizaci%C3%B3n](https://es.wikipedia.org/wiki/Memoizaci%C3%B3n)
+
+# Memoization en React

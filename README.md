@@ -796,3 +796,102 @@ Una aplicación de Next.js no es nada más que una aplicación de Node.js, al co
 > - [https://es.wikipedia.org/wiki/Memoizaci%C3%B3n](https://es.wikipedia.org/wiki/Memoizaci%C3%B3n)
 
 # Memoization en React
+
+...
+
+# 📝 Notas del Curso de Next.js: Autenticación
+
+## Este curso es la continuacion de la saga de cursos de Next.js. [Repo](https://github.com/BraianVayletGlobant/curso-next-sitios-estaticos-jamstack-platzi)
+
+## Clases
+
+- Clase1: [Arquitectura de nuestro proyecto](#Arquitectura-de-nuestro-proyecto)
+- Clase2: [Autenticación clásica vs. moderna: OAuth y JWT](#Autenticación-clásica-vs.-moderna:-OAuth-y-JWT)
+- Clase3: [Patrones de autenticación en Next.js](#Patrones-de-autenticación-en-Next.js)
+- Clase4: [Configurando Next Auth y proveedores](#Configurando-Next-Auth-y-proveedores)
+- Clase5: [Inicio y cierre de sesión](#Inicio-y-cierre-de-sesión)
+- Clase6: [Autenticando desde GitHub](#Autenticando-desde-GitHub)
+- Clase7: [UnderTheHood: Sesiones y JWT](#UnderTheHood:-Sesiones-y-JWT)
+- Clase8: [Protegiendo páginas desde el cliente y desde el servidor](#Protegiendo-páginas-desde-el-cliente-y-desde-el-servidor)
+- Clase9: [Protegiendo rutas API](#Protegiendo-rutas-API)
+- Clase10: [Soluciones basadas en Node.js: Passport, Auth0, emails y bases de datos](#Soluciones-basadas-en-Node.js:-Passport,-Auth0,-emails-y-bases-de-datos)
+- Clase11: [Seguridad y otras consideraciones con Next.js](#Seguridad-y-otras-consideraciones-con-Next.js)
+
+# Arquitectura de nuestro proyecto
+
+...
+
+# Autenticación clásica vs. moderna: OAuth y JWT
+
+> Links:
+>
+> - [https://developer.mozilla.org/es/docs/Web/HTTP/Cookies](https://developer.mozilla.org/es/docs/Web/HTTP/Cookies)
+> - [https://jwt.io/](https://jwt.io/)
+
+# Patrones de autenticación en Next.js
+
+> Links:
+>
+> - [https://next-auth.js.org/](https://next-auth.js.org/)
+
+# Configurando Next Auth y proveedores
+
+En el objeto crendentials de la función authorize tiene una clave llamada csrfToken.
+
+> Links:
+>
+> - [https://www.youtube.com/watch?v=CXSE89JGnek](https://www.youtube.com/watch?v=CXSE89JGnek)
+> - [https://stackoverflow.com/questions/5207160/what-is-a-csrf-token-what-is-its-importance-and-how-does-it-work](https://stackoverflow.com/questions/5207160/what-is-a-csrf-token-what-is-its-importance-and-how-does-it-work)
+
+# Inicio y cierre de sesión
+
+...
+
+# Autenticando desde GitHub
+
+Con NextOuth integrado a la capa de autentificacion para NextJs, nos da la posibilidad de integrar de manera muy facil con muchisimos sitios donde ya estan resueltos todos los flujos de autorizaciones. Solo falta configurar la app que quieres usar y los secretos respectivos para la app.
+
+NextOut soluciono todas las autentificaciones y todos los flujos de Oauth por nosotros.
+
+Lo unico que tuvimos que hacer es especificar como conectarnos a los servicios y utilizar las propiedades y utilidades qu next Oauth nos da para manipular las sesiones.
+
+Podemos agregar mas provedores, NextAuth tiene una lista enorme.
+
+Next - Que sucede con las sesiones y como NextAuth realiza estos procesos.
+
+> Links:
+>
+> - [https://github.com/settings/apps](https://github.com/settings/apps)
+
+# UnderTheHood: Sesiones y JWT
+
+> Links:
+>
+> - [https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+> - [https://jwt.io/](https://jwt.io/)
+
+# Protegiendo páginas desde el cliente y desde el servidor
+
+...
+
+# Protegiendo rutas API
+
+...
+
+Nota:
+
+- useSession para el cliente (se le saca ventajas adicionales)
+- getSession para el servidor
+
+# Soluciones basadas en Node.js: Passport, Auth0, emails y bases de datos
+
+> Links:
+>
+> - [https://next-auth.js.org/providers/email](https://next-auth.js.org/providers/email)
+> - [https://next-auth.js.org/configuration/databases](https://next-auth.js.org/configuration/databases)
+
+# Seguridad y otras consideraciones con Next.js
+
+> Links:
+>
+> - [https://balavishnuvj.com/blog/where-to-store-auth-tokens/](https://balavishnuvj.com/blog/where-to-store-auth-tokens/)
